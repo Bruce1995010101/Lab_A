@@ -1,0 +1,89 @@
+目標 : 練習「編輯檔案 → 追蹤檔案 → 提交新版本 → 推送到GitHub」的流程 
+
+
+10. 觀察工作目錄目前的狀態
+
+    11. 使用 Visual Studio Code 開啟 GitHub 複製下來的 Lab_A 資料夾
+
+    12. 點選上方功能表列 => 終端機 => 新增終端機
+    
+    13. 從終端機面板右上角的下拉按鈕，選擇 Command Prompt
+
+    14. 在終端機輸入 git status 指令，觀察訊息
+
+
+20. 新增檔案
+
+    21. 新增 pokemon.html，輸入以下內容並存檔
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Pokemon</title>
+        </head>
+        <body>
+            <h1>皮卡丘</h1>
+        </body>
+        </html>
+
+
+        ！！！！剛新增時 vscode上會出現Ｕ 並在滑鼠移到資料名稱時 有已取消追蹤字樣 代表git還沒有該檔案的資料
+
+    22. 在終端機輸入 git status 指令，觀察訊息
+
+    ！！！會出現追蹤與未追蹤的名字
+
+
+30. 將檔案放到暫存區列管|追蹤。步驟 31~32 請在終端機操作
+
+    31. 輸入 git add pokemon.html
+    ！！！輸入後終端機不會回傳任何內容
+    
+
+    32. 輸入 git status 指令，觀察訊息
+    ！！！pokemon.html會出現在追蹤的檔案中 也代表成功加在暫存區
+
+    ！！！可以用  git rm --cached <file>... 來移除暫存區檔案
+
+
+40. 提交檔案。步驟 41~42 請在終端機操作
+
+    41. 輸入 git commit -m "新增皮卡丘"
+    ！！！這算是備註這次檔案版本
+
+
+    42. 輸入 git log，查看版本紀錄
+    ！！！return
+        //雜湊值(aka版本id)  另外在“(HEAD -> main)”中 main是main分支 HEAD則是指向現在的位置//
+    commit d2688302994b44113f5e655789e4a224e5108f75 (HEAD -> main)
+        //作者
+    Author: Bruce1995010101 <bruceliu84@gmail.com>
+        //日期時間
+    Date:   Wed May 22 11:52:22 2024 +0800
+    ！！！
+    !!! 可以輸入git log --oneline 來顯示版本資訊的簡約版 
+
+
+50. 推送（上傳）到 GitHub 數據庫。步驟 52~54 請在終端機操作
+
+
+    51. 請至 GitHub 頁面確認已登入帳號
+
+    52. 輸入 git remote -v，查詢指向的 GitHub 數據庫位址
+    ！！！若發現沒有指向數據庫位址 則要用 ‘git remote add 自訂的簡稱 GitHub數據庫位址‘ 來新增指向位址
+
+    ！！！return
+    origin  https://github.com/Bruce1995010101/Lab_A.git (fetch)
+    //推送位址
+    origin  https://github.com/Bruce1995010101/Lab_A.git (push)
+    ！！！
+
+    53. 輸入 git push origin main，若出現 "Connect to GitHub" 視窗，點選 "Sign in with your browser"
+    !!!git push origin（數據庫位址） main（分支）
+    ！！！git push https://github.com/Bruce1995010101/Lab_A.git main
+
+
+    54. 輸入 git log --oneline，觀察訊息
+
+    55. 在 GitHub 頁面查看數據庫變化
